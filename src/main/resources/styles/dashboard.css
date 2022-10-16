@@ -1,0 +1,12 @@
+.button {
+    -fx-background-color: #5D5FEF;
+    -fx-text-fill: #ffffff;
+}
+
+.sideMenu {
+    -fx-background-color: #ffffff;
+}
+
+.main {
+    -fx-background-color: #FAFBFC;
+}

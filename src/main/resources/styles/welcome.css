@@ -1,0 +1,13 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.loginButton {
+    -fx-background-color: #5D5FEF;
+    -fx-text-fill: #ffffff;
+}
+
+.cancelButton {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #5D5FEF;
+}
