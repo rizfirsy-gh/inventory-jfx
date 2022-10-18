@@ -20,7 +20,7 @@
 
 <GridPane prefHeight="769.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rizfirsy.inventory.WelcomeController">
     <stylesheets>
-        <URL value="@/styles/dashboard.css" />
+        <URL value="@/styles/welcome.css" />
     </stylesheets>
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -77,7 +77,7 @@
                              <font>
                                 <Font size="18.0" />
                              </font></Label>
-                          <TextField prefHeight="65.0" prefWidth="300.0" />
+                          <TextField fx:id="username" prefHeight="65.0" prefWidth="300.0" />
                        </children>
                     </HBox>
                   
@@ -87,7 +87,7 @@
                                <font>
                                   <Font size="18.0" />
                                </font></Label>
-                            <PasswordField prefHeight="65.0" prefWidth="300.0" />
+                            <PasswordField fx:id="password" prefHeight="65.0" prefWidth="300.0" onKeyReleased="#fieldKeyReleasedHandler"  />
                          </children>
                     </HBox>
                   
@@ -106,11 +106,11 @@
                     </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="24.0" GridPane.rowIndex="3">
                      <children>
-                        <Button styleClass="loginButton" mnemonicParsing="false" onAction="#switchToDashboard" text="Login">
+                        <Button styleClass="loginButton" fx:id="loginButton" mnemonicParsing="false" onAction="#buttonHandler" text="Login">
                            <font>
                               <Font size="18.0" />
                            </font></Button>
-                        <Button styleClass="cancelButton" mnemonicParsing="false" text="Cancel">
+                        <Button styleClass="clearButton" fx:id="clearButton" mnemonicParsing="false" onAction="#buttonHandler" text="Clear">
                            <font>
                               <Font size="18.0" />
                            </font></Button>

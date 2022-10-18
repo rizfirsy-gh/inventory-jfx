@@ -1,2 +1,4 @@
-module-info.class
 com\rizfirsy\inventory\App.class
+module-info.class
+com\rizfirsy\inventory\WelcomeController.class
+com\rizfirsy\inventory\DashboardController.class

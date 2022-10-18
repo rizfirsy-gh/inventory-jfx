@@ -7,7 +7,10 @@
     -fx-text-fill: #ffffff;
 }
 
-.cancelButton {
+.clearButton {
     -fx-background-color: #ffffff;
     -fx-text-fill: #5D5FEF;
+    -fx-stroke: #5D5FEF;
+    -fx-stroke-width: 2;
+    -fx-stroke-line-cap: butt;
 }
