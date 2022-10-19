@@ -4,55 +4,77 @@
  */
 package com.rizfirsy.inventory;
 
-import javafx.scene.Scene;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.Label;
 import javafx.fxml.Initializable;
-import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.ScrollPane;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javafx.fxml.FXML;
 
 /**
  * FXML Controller class
  *
  * @author Rizky Firman Syah
  */
-public class DashboardController implements Initializable {
+public class DashboardController implements Initializable {    
+    @FXML
+    private Label clockArea;
+    @FXML
+    public BarChart salesReport;
+    
+    private String timeString = ""; 
+     
+     private void generateWatch () {
+        SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss a");  
+        printTime(formatter);
+     }
+     
+     public void printTime(SimpleDateFormat formatter) {
+        timeString = formatter.format( Calendar.getInstance().getTime() );  
+        clockArea.setText(timeString);
+        System.out.println(timeString);
+        try { 
+            Thread.sleep( 1000 );
+        } catch (InterruptedException ex) {
+        }
+    }
 
-    public ScrollPane mainPane;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        generateWatch ();
         final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
-        final BarChart<String, Number> countryChart = new BarChart<>(xAxis, yAxis);
-        countryChart.setTitle("Country Chart");
-        xAxis.setLabel("Negara");
-        yAxis.setLabel("Value");
+        salesReport.setTitle("Sales Mingguan");
+        xAxis.setLabel("Minggu 1");
+        yAxis.setLabel("Minggu 2");
         
-        XYChart.Series seriesAsia = new XYChart.Series();
-        seriesAsia.setName("Asia");
-        seriesAsia.getData().add(new XYChart.Data("Indonesia", 5000));
-        seriesAsia.getData().add(new XYChart.Data("Japan", 1200));
-        seriesAsia.getData().add(new XYChart.Data("China", 1000));
-        seriesAsia.getData().add(new XYChart.Data("Singapore", 10000));
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("Minggu 1");
+        series1.getData().add(new XYChart.Data("Senin", 5000));
+        series1.getData().add(new XYChart.Data("Selasa", 3000));
+        series1.getData().add(new XYChart.Data("Rabu", 2400));
+        series1.getData().add(new XYChart.Data("Kamis", 1200));
+        series1.getData().add(new XYChart.Data("Jumat", 4500));
+
+                        
+
+        XYChart.Series series2 = new XYChart.Series();
+        series2.setName("Minggu 2");
+        series2.getData().add(new XYChart.Data("Senin", 2000));
+        series2.getData().add(new XYChart.Data("Selasa", 1600));
+        series2.getData().add(new XYChart.Data("Rabu", 7000));
+        series2.getData().add(new XYChart.Data("Kamis", 2200));
+        series2.getData().add(new XYChart.Data("Jumat", 4300));
         
-        XYChart.Series seriesEurope = new XYChart.Series();
-        seriesEurope.setName("Europe");
-        seriesEurope.getData().add(new XYChart.Data("France", 8000));
-        seriesEurope.getData().add(new XYChart.Data("England", 7000));
-        seriesEurope.getData().add(new XYChart.Data("Denmark", 2000));
-        seriesEurope.getData().add(new XYChart.Data("Italy", 9000));
-        
-        countryChart.getData().addAll(seriesAsia, seriesEurope);
-        
-        mainPane.setContent(countryChart);
+        salesReport.getData().addAll(series1, series2);
     }    
     
     

@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.net.URL?>
-<BorderPane id="borderPane" prefHeight="769.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rizfirsy.inventory.DashboardController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedAreaChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane id="borderPane" prefHeight="948.0" prefWidth="1297.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rizfirsy.inventory.DashboardController">
     <stylesheets>
         <URL value="@/styles/dashboard.css" />
     </stylesheets>
@@ -34,6 +51,21 @@
                   <Insets />
                </HBox.margin>
                <children>
+                  <Pane prefHeight="34.0" prefWidth="210.0" style="-fx-stroke: #4a4a4a; -fx-stroke-width: 2; -fx-stroke-line-cap: butt;">
+                     <children>
+                        <Label fx:id="clockArea" layoutX="73.0" layoutY="17.0" text="clock" textFill="#4a4a4a">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="56.0" prefWidth="4.0" style="-fx-background-color: #f4f4f4;" />
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/avatar_1.jpg" />
+                     </image>
+                  </ImageView>
                   <VBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="180.0">
                      <children>
                         <Text fill="#151d48" strokeType="OUTSIDE" strokeWidth="0.0" text="Rizky Firman Syah">
@@ -86,7 +118,106 @@
       </VBox>
    </left>
    <center>
-      <ScrollPane fx:id="mainPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane prefHeight="829.0" prefWidth="952.0" style="-fx-background-color: #f4f4f4;" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+         </padding>
+         <content>
+            <GridPane hgap="16.0" prefHeight="772.0" prefWidth="908.0" style="-fx-background-color: #f4f4f4;" vgap="16.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <BarChart fx:id="salesReport" style="-fx-background-color: #ffffff;" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <LineChart style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+                  <AreaChart style="-fx-background-color: #ffffff;" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.vgrow="SOMETIMES">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </AreaChart>
+                  <StackedAreaChart style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="2" GridPane.vgrow="SOMETIMES">
+                    <xAxis>
+                      <NumberAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </StackedAreaChart>
+                  <VBox prefHeight="268.0" prefWidth="446.0" style="-fx-background-color: #ffffff;" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                     <children>
+                        <Label text="Total Barang">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="450" textFill="#5d5fef">
+                           <font>
+                              <Font name="System Bold Italic" size="48.0" />
+                           </font>
+                        </Label>
+                        <Label text="item">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="209.0" prefWidth="446.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                     <children>
+                        <Label text="Sales Mingguan">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="398.0" spacing="24.0">
+                           <children>
+                              <Label text="120.000.000" textFill="#5d5fef">
+                                 <font>
+                                    <Font name="System Bold Italic" size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label text="-10%" textFill="#e43232" />
+                           </children>
+                        </HBox>
+                        <Label text="Rupiah">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </GridPane>
+         </content>
       </ScrollPane>
    </center>
 </BorderPane>
